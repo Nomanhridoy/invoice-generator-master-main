@@ -1,0 +1,270 @@
+/* Common styles for both screen and print */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.invoice-generator {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+  text-align: center;
+}
+
+.customer-details,
+.product-inputs {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+.customer-details h2,
+.product-inputs h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.product-input {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-input input {
+  flex: 1;
+  padding: 5px;
+}
+
+.product-input button {
+  background-color: #ff5757;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.product-input button:hover {
+  background-color: #e05252;
+}
+
+.invoice-preview {
+  display: none;
+  /* Hide invoice preview by default */
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: center;
+  page-break-before: always;
+  /* Add a page break before the invoice preview */
+}
+
+/* CSS for hiding elements with the "hidden" class */
+.hidden {
+  display: none;
+}
+
+.invoice-title {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Adjust styles for the top section */
+.preview-top {
+  display: flex;
+  /* Use flexbox to align items side by side */
+  justify-content: space-between;
+  /* Space between the two sections */
+  align-items: flex-start;
+  /* Align items at the top */
+}
+
+.left-top {
+  flex: 1;
+  /* Take up available space */
+  text-align: left;
+}
+
+.right-top {
+  flex: 1;
+  /* Take up available space */
+  text-align: right;
+}
+
+/* Adjust margin for the logo to move it up */
+.logo-address img {
+  max-width: 120px;
+  max-height: 100px;
+  margin-top: -40px;
+  /* Move the logo up */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+table,
+th,
+td {
+  border: 1px solid #ccc;
+}
+
+th,
+td {
+  padding: 8px;
+  text-align: center;
+}
+
+/* Add a style for the total amount and in words sections */
+.total-section {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+/* Style the total amount and in words text */
+.total-section p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Style the in words text */
+#totalInWords {
+  font-style: italic;
+}
+
+/* Style the "Add Another Product" and "Add Item" buttons */
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.buttons-container button {
+  flex: 1;
+  margin-right: 10px;
+}
+
+button {
+  background-color: #54307E;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #402464;
+}
+
+/* Add styles for the Flipper Policy section */
+.policy {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  text-align: left;
+  font-size: 14px;
+}
+
+.policy h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.policy ol {
+  list-style-type: decimal;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.policy ol li {
+  margin-bottom: 10px;
+}
+
+.policy ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  padding-left: 10px;
+}
+
+.policy p {
+  margin-bottom: 5px;
+}
+
+@page {
+  margin: 0;
+}
+
+/* Print-specific styles */
+/* Adjust styles for proper alignment in print */
+@media print {
+
+  /* Hide elements you don't want to print */
+  #printInvoice,
+  #printInvoicePDF,
+  #downloadHtml,
+  .invoice-generator,
+  .header {
+    display: none;
+  }
+
+  /* Reset some styles for better printing */
+  body {
+    background-color: white;
+    margin: 0;
+  }
+
+  /* Adjust styles for the logo when printed */
+  .logo-address img {
+    max-width: 40px;
+    max-height: 40px;
+    margin-top: 0;
+  }
+
+  /* Style the table for better printing */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+
+  th,
+  td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    /* Center-align text in table cells for print */
+  }
+
+  /* Style the "SL, Description, Unit, Unit Price, Amount" row for print */
+  table thead tr {
+    background-color: #f2f2f2;
+    text-align: center;
+    /* Center-align text in table header for print */
+  }
+
+  /* Style the total section for better printing */
+  .total-section {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  /* Style the in words text for better printing */
+  #totalInWords {
+    font-style: italic;
+  }
+}
